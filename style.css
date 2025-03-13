@@ -1,0 +1,139 @@
+/* Сброс стилей (можно использовать normalize.css или аналог) */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Полноэкранный контейнер */
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: sans-serif;
+  background: #0f0f1c;
+  color: #fff;
+  overflow: hidden; /* Убираем прокрутку на время */
+}
+
+/* Экран загрузки */
+#loading-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #0f0f1c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  text-align: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 6px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 1s infinite linear;
+  margin: 0 auto 15px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden {
+  display: none;
+}
+
+/* Основной контейнер приложения */
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Включаем прокрутку для контента */
+  padding: 20px;
+  background: linear-gradient(160deg, #17172b 0%, #0f0f1c 100%);
+}
+
+/* Шапка */
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.app-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Блок для сообщения о PWA */
+.pwa-check {
+  margin-bottom: 20px;
+  padding: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Контейнер для карточек */
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Каждая карточка */
+.card {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/* Размытый слой */
+.card-blur {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  /* Можно добавить полупрозрачный фон */
+  background: rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.card-content p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* При нажатии на карточку убираем blur, затемняем фон */
+.card.active .card-blur {
+  backdrop-filter: none;
+  background: rgba(0,0,0,0.6);
+}
+
+/* Пример анимации/эффекта при наведении (необязательно) */
+.card:hover {
+  transform: scale(1.01);
+  transition: transform 0.2s;
+}

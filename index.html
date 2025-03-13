@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newccode PWA</title>
+
+  <!-- Манифест PWA -->
+  <link rel="manifest" href="manifest.json">
+  <!-- Иконка для iOS (иконка приложения на домашнем экране iPhone/iPad) -->
+  <link rel="apple-touch-icon" href="icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <!-- Основные стили -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Скрипт (логика PWA и функционал карточек) -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Экран загрузки -->
+  <div id="loading-screen">
+    <div class="loader">
+      <!-- Можно заменить на любую анимацию/изображение -->
+      <div class="spinner"></div>
+      <p>Загрузка...</p>
+    </div>
+  </div>
+
+  <!-- Основной контент (скрыт до завершения загрузки) -->
+  <div id="app" class="hidden">
+
+    <!-- Шапка/топ-бар (при необходимости) -->
+    <header>
+      <img src="icon.png" alt="App Icon" class="app-icon">
+      <h1>Newccode</h1>
+    </header>
+
+    <!-- Проверка PWA (необязательно: можно показать подсказку «Добавить на экран» и т.п.) -->
+    <div id="pwa-check" class="pwa-check">
+      <!-- Содержимое будет управляться из script.js -->
+    </div>
+
+    <!-- Три вкладки/карточки -->
+    <div class="cards-container">
+      <!-- 1) DNS -->
+      <div class="card" id="dns-card">
+        <div class="card-blur">
+          <div class="card-content">
+            <h2>madns</h2>
+            <p>Настройки DNS</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2) Portal -->
+      <div class="card" id="portal-card">
+        <div class="card-blur">
+          <div class="card-content">
+            <h2>Continent portal</h2>
+            <p>Скачать профиль</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3) Newccode -->
+      <div class="card" id="newccode-card">
+        <div class="card-blur">
+          <div class="card-content">
+            <h2>Профиль автора</h2>
+            <p>Newccode, Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
